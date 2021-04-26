@@ -1,0 +1,13 @@
+<div class="login-container">
+  <form class="example-form">
+    <mat-form-field class="full-width">
+      <mat-label>User name</mat-label>
+      <input matInput name="name" [(ngModel)]="data.name" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput name="password" type="password" [(ngModel)]="data.password" required>
+    </mat-form-field>
+    <button mat-raised-button class="full-width m-t-15" color="primary" (click)="login()">Login</button>
+  </form>
+</div>

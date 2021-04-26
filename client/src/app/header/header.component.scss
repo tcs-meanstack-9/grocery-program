@@ -1,0 +1,21 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+.m-r-15 {
+  margin-right: 15px;
+}
+
+.headerContainer {
+  background: #ffffff;
+  .navigation-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  .section-example {
+    display: flex;
+  }
+}

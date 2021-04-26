@@ -1,0 +1,28 @@
+<div class="container">
+  <div fxLayout="row" class="add-button">
+    <button mat-raised-button color="primary" (click)="openProductDialog()">Add new item</button>
+  </div>
+  <div class="product-container m-t-10">
+    <mat-card class="product-card" *ngFor="let product of productList">
+      <img mat-card-image class="image" [src]="product.image || defaultImg" [alt]="product.name">
+      <mat-card-content>
+        <div class="m-t-10 title">
+          {{ product.name }}
+        </div>
+        <div class="m-t-10">
+          Price: <span class="price">{{ product.price }} Rs</span>
+        </div>
+        <div class="m-t-10">
+          Quantity: <span class="price">{{ product.quantity }}</span>
+        </div>
+        <div class="m-t-10 description">
+          {{ product.description }}
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button (click)="openProductDialog(product)">Edit</button>
+        <button mat-button (click)="deleteProduct(product)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

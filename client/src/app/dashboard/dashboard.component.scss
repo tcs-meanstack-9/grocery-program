@@ -1,0 +1,32 @@
+.container {
+  padding: 10px 30px;
+  .add-button {
+    justify-content: flex-end;
+  }
+  .product-container {
+    .product-card {
+      max-width: 200px;
+      margin: 10px;
+      display: inline-block;
+      .image {
+        height: 150px; /* adjust as needed */
+        object-fit: contain;
+      }
+      .title {
+        font-size: 18px;
+        text-transform: capitalize;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .price {
+        font-weight: 600;
+      }
+      .description {
+        height: 65px;
+        display: block;
+        overflow-y: hidden;
+      }
+    }
+  }
+}
