@@ -1,7 +1,15 @@
 <div class="container">
+  <div fxLayout="row" class="add-button1">
+    <button mat-raised-button color="primary" (click)="logout()">logout</button>
+  </div>
   <div fxLayout="row" class="add-button">
     <button mat-raised-button color="primary" (click)="openProductDialog()">Add new item</button>
+    <br>
+    <br>
+    <button mat-raised-button color="primary">View Request</button>
   </div>
+ 
+  
   <div class="product-container m-t-10">
     <mat-card class="product-card" *ngFor="let product of productList">
       <img mat-card-image class="image" [src]="product.image || defaultImg" [alt]="product.name">
@@ -10,7 +18,7 @@
           {{ product.name }}
         </div>
         <div class="m-t-10">
-          Price: <span class="price">{{ product.price }} Rs</span>
+          Price: <span class="price">{{ product.price }} $</span>
         </div>
         <div class="m-t-10">
           Quantity: <span class="price">{{ product.quantity }}</span>
@@ -26,3 +34,5 @@
     </mat-card>
   </div>
 </div>
+
+

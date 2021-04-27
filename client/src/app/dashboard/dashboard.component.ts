@@ -48,4 +48,9 @@ export class DashboardComponent implements OnInit {
   deleteProduct(product: any) {
     this.productService.deleteProduct(product).subscribe((data: any) => {this.getProducts()});
   }
+
+  logout() {
+    sessionStorage.removeItem('isAdminLoggedIn');
+    this.router.navigate(['login']);
+  }
 }

@@ -1,15 +1,14 @@
-
 <mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation">
-    <mat-nav-list>
-      <a routerLink="/dashboard" mat-list-item class="m-r-15">Dashboard</a>
-      <a mat-list-item class="m-r-15" (click)="logout()">Logout</a>
-    </mat-nav-list>
-  </mat-sidenav>
+  
+    <mat-sidenav #sidenav role="navigation">
+   
+</mat-sidenav>
   <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
     <main>
-      <router-outlet></router-outlet>
+      <router-outlet>
+        
+      </router-outlet>
     </main>
   </mat-sidenav-content>
+</mat-sidenav-container>
 </mat-sidenav-container>

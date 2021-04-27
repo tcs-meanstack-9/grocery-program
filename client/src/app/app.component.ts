@@ -13,8 +13,5 @@ export class AppComponent {
     public router: Router
   ) {}
 
-  logout() {
-    sessionStorage.removeItem('isAdminLoggedIn');
-    this.router.navigate(['']);
-  }
+  
 }
