@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get("/getallemplyees", employees.getAllEmployees);
 
+router.get("/getemployee", employees.getemployee);
+
 router.post("/addemployee", employees.addEmployee);
 
 router.put("/updateemployee", employees.updateEmployee);
