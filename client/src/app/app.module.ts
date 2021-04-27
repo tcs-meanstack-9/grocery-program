@@ -12,14 +12,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MaterialModule } from './material/material.module';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  {path:'',component:HomeComponent},
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  
+
 ];
 
 @NgModule({
@@ -29,6 +33,7 @@ const routes: Routes = [
     HeaderComponent,
     ProductDialogComponent,
     LoginComponent,
+    HomeComponent,
     EmployeeDashboardComponent,
     EmployeeSendRequestComponent,
     EmployeeSigninComponent,
