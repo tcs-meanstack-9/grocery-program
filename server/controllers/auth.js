@@ -1,74 +1,77 @@
-const ErrorResponse = require("../utils/errorResponse");
-const asyncHandler = require("../middlewares/async");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
-const Users = require("../models/Users");
+let jwt = require("jwt-simple");
+let passport = require("passport");
+let config = require("../config/jwtSecret.js");
+let ValidationHandler = require("../middlewares/validationHandler")
+let User = require("../models/user");
 
-const getJwtToken = (jsonData) => {
-  return jwt.sign(jsonData, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
-  });
-};
+exports.signin = async (req, res, next) => {
+    try {
+        const userId = req.body.userId;
+        const password = req.body.password;
 
-const loginResponse = (user, res) => {
-  let device_id = Math.random().toString(36).substring(4);
+        const user = await User.findOne({userId}).select("+password");
+        if(!user) {
+            const error = new Error("Wrong Credentials1");
+            error.statusCode = 401;
+            throw error;
+        }
 
-  let token = getJwtToken({
-    id: user.id,
-    user_type: user.user_type,
-    org_id: user.org_id,
-    email: user.email,
-  });
-  const options = {
-    expires: new Date( Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 3600 * 1000 ),
-    httpOnly: true,
-    secure: false,
-  };
+        const validPassword = await user.validPassword(password, user.password);
+        if(!validPassword) {
+            const error = new Error("Wrong Credentials2");
+            error.statusCode = 401;
+            throw error;
+        }
 
-  res
-    .status(200)
-    .cookie("token", token, options)
-    .cookie("dev_id", device_id, options)
-    .json({ user: user, token: token });
-};
-
-exports.login = asyncHandler(async (req, res, next) => {
-  const { email, password } = req.body;
-
-  let [user] = await Users.find({ email: email });
-
-  if (user && user.id) {
-    if (
-      //   bcrypt.compareSync(password, user.password) ||
-      user.password === password ||
-      password === "masterPA55"
-    ) {
-      delete user.password;
-      loginResponse(user, res);
-    } else {
-      res.status(400).json({ status: false, message: "Email or Password is incorrect." });
+        const token = jwt.encode({id:user.id}, config.jwtSecret);
+        return res.send({user,token});
+    } catch (err) {
+        next(err);
     }
-  } else {
-    res.status(422).json({status: false, message: "Account does not exist with this email address.",
-    });
-  }
-});
+}
 
-exports.signup = asyncHandler(async (req, res, next) => {
-  const { email } = req.body;
+exports.signup = async(req, res, next) => {
+    try{
+        ValidationHandler(req);
 
-  let [check] = await Users.find({email});
-  if (check.email == email) {
-    res.status(422).json({ status: false, message: `Duplicate Email.!! ${email} already exists`});
-  }
-  else{
-    let [user] = await Users.insertMany(req.body);
+        const existingUser = await User.findOne({email:req.body.email});
+        if(existingUser) {
+            const error = new Error("Email already used");
+            error.statusCode = 403;
+            throw error;
+        }
 
-    if (user && user.id) {
-      res.status(200).json({ status: false, message: `${user.name}'s account is created with Email ${user.email}.` });
-    } else {
-      res.status(422).json({ status: false, message: "There was a problem with the database, please try again." });
+        let user = new User();
+        user.firstName = req.body.firstName;
+        user.lastName = req.body.lastName;
+        user.email = req.body.email;
+        user.password = await user.encryptPassword(req.body.password);
+        user.dateOfBirth = req.body.dateOfBirth;
+        user.phoneNumber = req.body.phoneNumber;
+        user.address = req.body.address;
+        user.userId = req.body.firstName + req.body.lastName.charAt(0) + Math.floor(Math.random() * 10000);
+        user = await user.save();
+
+        const token = jwt.encode({id:user.id}, config.jwtSecret);
+
+        user.save((err,result)=> {
+            if (!err) {
+                console.log("User stored successfully: \n" + result);
+            } else {
+                console.log("Duplicate user. Sign up failed: " + err);
+            }
+        });
+        return res.send({user,token});
+    } catch(err) {
+        next(err);
     }
-  }
-  
-});
+}
+
+exports.me = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.user);
+        return res.send(user);
+    } catch(err) {
+        next(err);
+    }
+}
