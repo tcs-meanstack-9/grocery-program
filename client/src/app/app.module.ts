@@ -23,6 +23,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -40,12 +41,13 @@ const routes: Routes = [
     ProductDialogComponent,
     LoginComponent,
     SignupComponent,
-    SignupConfirmationComponent
+    SignupConfirmationComponent,
     HomeComponent,
     EmployeeDashboardComponent,
     EmployeeSendRequestComponent,
     EmployeeSigninComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

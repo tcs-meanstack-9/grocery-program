@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+    <h2>Admin Dashboard</h2>
+    <ul class="nav nav-pills">
+        <li><button type="button" class="btn btn-primary" (click)="toggleAddEmployee()">Add Employee</button></li>
+        <li><button type="button" class="btn btn-primary" (click)="toggleDeleteEmployee()">Delete Employee</button></li>
+        <li><button type="button" class="btn btn-primary" (click)="generateReports()">Generate Reports</button></li>
+    </ul>
+    </div>
+
+    <div class="login-container" *ngIf="adminSelected.addEmployee">
+        <h1>Add Employee</h1>
+        <form class="example-form" #addEmployeeForm = "ngForm" (ngSubmit)="addEmployee(addEmployeeForm.value)" method="POST">
+            <mat-form-field class="full-width">
+                <mat-label>First Name:</mat-label>
+                <input matInput name="firstName" ngModel required>
+            </mat-form-field>
+    
+            <mat-form-field class="full-width">
+                <mat-label>Last Name: </mat-label>
+                <input matInput name="lastName" ngModel required>
+            </mat-form-field>
+    
+            <mat-form-field class="full-width">
+                <mat-label>Email: </mat-label>
+                <input matInput name="email" ngModel required>
+            </mat-form-field>
+    
+            <mat-form-field class="full-width">
+                <mat-label>Password: </mat-label>
+                <input type="password" matInput name="password" minlength="6" ngModel required>
+            </mat-form-field>
+    
+            <mat-form-field class="full-width">
+                <mat-label>Confirm Password: </mat-label>
+                <input type="password" matInput name="confirmedPassword" minlength="6" ngModel required>
+            </mat-form-field>
+      
+            <mat-form-field class="full-width">
+                <mat-label>Date of Birth: </mat-label>
+                <input matInput name="dateOfBirth" ngModel required>
+            </mat-form-field>
+    
+            <mat-form-field class="full-width">
+                <mat-label>Phone Number: </mat-label>
+                <input matInput name="phoneNumber" ngModel required>
+            </mat-form-field>
+    
+            <mat-form-field class="full-width">
+                <mat-label>Address: </mat-label>
+                <input matInput name="address" ngModel required>
+            </mat-form-field>
+    
+            
+            <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Add</button>
+            <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>                
+        </form>
+    </div>
+
+    <div class="login-container" *ngIf="adminSelected.deleteEmployee">
+        <h1>Delete Employee</h1>
+        <form class="example-form" #deleteEmployeeForm = "ngForm" (ngSubmit)="deleteEmployee(deleteEmployeeForm.value)" method="POST">
+            <mat-form-field class="full-width">
+                <mat-label>User Id</mat-label>
+                <input matInput name="userId" ngModel required>
+            </mat-form-field>
+            
+            <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Delete</button>
+            <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>               
+        </form>
+    </div>
+</body>
+</html>
