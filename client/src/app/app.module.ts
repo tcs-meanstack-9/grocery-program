@@ -20,14 +20,16 @@ import { SignupConfirmationComponent } from './signup-confirmation/signup-confir
 
 import { HomeComponent } from './home/home.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
-import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
+import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
+
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  { path:'',component:HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path:'employeeLogin',component:EmployeeSigninComponent},
   
 
 ];
@@ -43,8 +45,8 @@ const routes: Routes = [
     SignupConfirmationComponent
     HomeComponent,
     EmployeeDashboardComponent,
-    EmployeeSendRequestComponent,
     EmployeeSigninComponent,
+    EmployeeSendRequestComponent,
     UserDashboardComponent
   ],
   imports: [

@@ -80,3 +80,18 @@ exports.getAllEmployees = asyncHandler(async (req, res, next) => {
       await client.close();
     }
   });
+
+  exports.getEmployeeByEmail = asyncHandler(async (req, res, next) => {
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    try {
+      await client.connect();
+      const result = await client.db(dbName).collection("employees").findOne({email: req.query.email});
+      res.send(result);
+    } catch (err) {
+      console.log(err.stack);
+      errorHandler(err);
+    } finally {
+      await client.close();
+    }
+  });
+    
