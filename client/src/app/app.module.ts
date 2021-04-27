@@ -12,10 +12,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MaterialModule } from './material/material.module';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+
+
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  {path:'',component:HomeComponent},
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  
+
 ];
 
 @NgModule({
@@ -24,7 +30,10 @@ const routes: Routes = [
     DashboardComponent,
     HeaderComponent,
     ProductDialogComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
