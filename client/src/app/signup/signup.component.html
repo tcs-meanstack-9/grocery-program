@@ -1,0 +1,48 @@
+<div class="login-container">
+    <form id="signup-form" class="example-form" #userLoginForm = "ngForm" (ngSubmit)="signup(userLoginForm.value)" method="POST">
+        
+        <mat-form-field class="full-width">
+            <mat-label>First Name:</mat-label>
+            <input matInput name="firstName" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Last Name: </mat-label>
+            <input matInput name="lastName" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Email: </mat-label>
+            <input matInput name="email" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Password: </mat-label>
+            <input type="password" matInput name="password" minlength="6" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Confirm Password: </mat-label>
+            <input type="password" matInput name="confirmedPassword" minlength="6" ngModel required>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+            <mat-label>Date of Birth: </mat-label>
+            <input matInput name="dateOfBirth" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Phone Number: </mat-label>
+            <input matInput name="phoneNumber" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Address: </mat-label>
+            <input matInput name="address" ngModel required>
+        </mat-form-field>
+
+        <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Sign Up</button>
+        <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>
+        <button mat-raised-button class="full-width m-t-15" type="button" style="background-color: green; color:white" (click)="userSignin()">Sign in</button>
+    </form>
+  </div>

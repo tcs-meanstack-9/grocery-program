@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const passportJWT = require("./middlewares/passportJWT.js")();
 
 const PORT = process.env.PORT || 4000;
 
@@ -26,6 +27,8 @@ app.use(cors());
 app.use(
   bodyParser.json({ limit: "50mb", extended: true, parameterLimit: 50000 })
 );
+
+app.use(passportJWT.initialize());
 
 app.use(cookieParser());
 if (process.env.NODE_ENV == "development") {

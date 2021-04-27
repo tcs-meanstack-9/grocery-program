@@ -1,4 +1,4 @@
-const ErrorResponse = require("../utils/errorResponse");
+/*const ErrorResponse = require("../utils/errorResponse");
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   error.message = err.message;
@@ -26,4 +26,14 @@ const errorHandler = (err, req, res, next) => {
   });
 };
 
-module.exports = errorHandler;
+module.exports = errorHandler;*/
+
+module.exports = (error, req, res, next) => {
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  const validation = error.validation;
+  res.status(status).json({
+      message, data, validation
+  });
+}

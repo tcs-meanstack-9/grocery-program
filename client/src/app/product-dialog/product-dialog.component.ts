@@ -22,5 +22,4 @@ export class ProductDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

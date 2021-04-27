@@ -1,11 +1,11 @@
 const express = require("express");
 const auth = require("../../controllers/auth");
-const authMiddleware = require("../../middlewares/auth");
-const validator = require("../../middlewares/validator");
-
+const passportJWT = require("../../middlewares/passportJWT")();
 const router = express.Router();
+const { isEmail, hasPassword, hasfistName, hasLastName} = require("../../middlewares/validator")
 
-router.post("/login", auth.login);
-router.post("/signup", auth.signup);
+router.post("/signin", auth.signin);
+router.post("/signup", [isEmail, hasPassword, hasfistName, hasLastName], auth.signup);
+//router.get("/me", passportJWT.authenticate(), auth.me);
 
 module.exports = router;

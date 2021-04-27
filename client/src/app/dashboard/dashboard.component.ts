@@ -18,10 +18,10 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getProducts();
-    if(!sessionStorage.getItem('isAdminLoggedIn')) {
-      this.router.navigate(['']);
-    }
+    // this.getProducts();
+    // if(!sessionStorage.getItem('isAdminLoggedIn')) {
+    //   this.router.navigate(['']);
+    // }
   }
 
   getProducts() {
@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-
+  
   deleteProduct(product: any) {
     this.productService.deleteProduct(product).subscribe((data: any) => {this.getProducts()});
   }

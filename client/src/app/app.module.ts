@@ -12,6 +12,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MaterialModule } from './material/material.module';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { UserService } from './user.service';
+import { AppRoutingModule } from './app-routing.module';
+import { SignupConfirmationComponent } from './signup-confirmation/signup-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -24,7 +28,9 @@ const routes: Routes = [
     DashboardComponent,
     HeaderComponent,
     ProductDialogComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    SignupConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +39,10 @@ const routes: Routes = [
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

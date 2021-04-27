@@ -11,6 +11,4 @@ router.put("/updateemployee", employees.updateEmployee);
 
 router.delete("/deleteemployee", employees.deleteEmployee);
 
-
-
 module.exports = router;

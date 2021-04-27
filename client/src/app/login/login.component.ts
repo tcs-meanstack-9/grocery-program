@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  data = { name: '', password: ''};
-  constructor(
-    public router: Router
-  ) { }
+
+  constructor(public router: Router, public userService:UserService) { 
+  }
 
   ngOnInit(): void {
   }
 
-  login() {
-    if (this.data.name === 'admin' && this.data.password === 'password') {
-      sessionStorage.setItem('isAdminLoggedIn', 'true');
-      this.router.navigate(['dashboard']);
-    }
+  async login(userLoginForm:any) {
+     let userObj = await this.userService.login(userLoginForm);
+     this.router.navigate(['dashboard']);
   }
 
+  signup():void {
+    this.router.navigate(['signup']);
+  }
 }

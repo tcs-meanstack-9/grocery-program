@@ -27,3 +27,19 @@ exports.validate = (req, res, next) => {
     errors: extractedErrors,
   });
 };
+
+exports.isEmail = body("email")
+  .isEmail()
+  .withMessage("email field must contain correct email");
+
+exports.hasPassword = body("password")
+  .isLength({min:6})
+  .withMessage("Password cant be empty");
+
+exports.hasfistName = body("firstName")
+  .notEmpty()
+  .withMessage("First name is required");
+
+  exports.hasLastName = body("lastName")
+  .notEmpty()
+  .withMessage("Last name is required");
