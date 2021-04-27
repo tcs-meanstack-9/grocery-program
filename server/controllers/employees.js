@@ -7,7 +7,7 @@ const random = require('random');
 const dbName = "grocers";
 const uri =  'mongodb://localhost:27017/grocers';
 
-exports.getAllProducts = asyncHandler(async (req, res, next) => {
+exports.getAllEmployees = asyncHandler(async (req, res, next) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
       await client.connect();
@@ -21,7 +21,7 @@ exports.getAllProducts = asyncHandler(async (req, res, next) => {
     }
   });
   
-  exports.getProduct = asyncHandler(async (req, res, next) => {
+  exports.getEmployee = asyncHandler(async (req, res, next) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
       await client.connect();
@@ -35,12 +35,12 @@ exports.getAllProducts = asyncHandler(async (req, res, next) => {
     }
   });
   
-  exports.addProduct = asyncHandler(async (req, res, next) => {
+  exports.addEmployee = asyncHandler(async (req, res, next) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
       await client.connect();
       const id = random.int((min = 0), (max = 99 * 99))
-      const result = await client.db(dbName).collection("products").insertOne({...req.body, id});
+      const result = await client.db(dbName).collection("employees").insertOne({...req.body, id});
       res.send(result);
     } catch (err) {
       console.log(err.stack);
@@ -50,13 +50,13 @@ exports.getAllProducts = asyncHandler(async (req, res, next) => {
     }
   });
   
-  exports.updateProduct = asyncHandler(async (req, res, next) => {
+  exports.updateEmployee = asyncHandler(async (req, res, next) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
       await client.connect();
-      const product = req.body;
-      delete product._id;
-      const result = await client.db(dbName).collection("products").findOneAndUpdate({ id: product.id }, { $set: product });
+      const employee = req.body;
+      delete employee._id;
+      const result = await client.db(dbName).collection("employees").findOneAndUpdate({ id: employee.id }, { $set: employee });
       res.send(result);
     } catch (err) {
       console.log(err.stack);
@@ -66,7 +66,7 @@ exports.getAllProducts = asyncHandler(async (req, res, next) => {
     }
   });
   
-  exports.deleteProduct = asyncHandler(async (req, res, next) => {
+  exports.deleteEmployee = asyncHandler(async (req, res, next) => {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
       await client.connect();
