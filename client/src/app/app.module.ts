@@ -14,6 +14,8 @@ import { ProductDialogComponent } from './product-dialog/product-dialog.componen
 import { LoginComponent } from './login/login.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
+import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -28,7 +30,9 @@ const routes: Routes = [
     ProductDialogComponent,
     LoginComponent,
     EmployeeDashboardComponent,
-    EmployeeSendRequestComponent
+    EmployeeSendRequestComponent,
+    EmployeeSigninComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
