@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+<div>
+    <div class="text-right" style="margin: 20px">
+        <button type="button" class="btn btn-success" routerLink="/login">Log out</button>
+    </div>
 
-<body>
-    <div class="container" style="margin-left: 0;">
-        <h2>Admin Dashboard</h2>
+    <div class="container" style="margin-left: 10px;">
+        <h1>Admin Dashboard</h1>
+
         <ul class="nav nav-pills" style="size: 100px;">
             <!-- Template for other admin functionalities
             <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected()">-</button></li>
@@ -26,7 +20,11 @@
     </div>
 
     <div class="login-container" *ngIf="adminSelected.addEmployee">
-        <h1>Add Employee</h1>
+        <label *ngIf="nonMatchingPassword" style="color: red;">
+            *Passwords do not match.
+            <br/><br/>
+        </label>
+
         <form class="example-form" #addEmployeeForm = "ngForm" (ngSubmit)="addEmployee(addEmployeeForm)" method="POST">
             <mat-form-field class="full-width">
                 <mat-label>First Name:</mat-label>
@@ -45,9 +43,14 @@
     
             <mat-form-field class="full-width">
                 <mat-label>Password: </mat-label>
-                <input type="text" matInput name="password" minlength="6" ngModel required>
+                <input type="password" matInput name="password" minlength="6" ngModel required>
             </mat-form-field>
       
+            <mat-form-field class="full-width">
+                <mat-label>Confirm Password: </mat-label>
+                <input type="password" matInput name="confirmedPassword" minlength="6" ngModel required>
+            </mat-form-field>
+
             <mat-form-field class="full-width">
                 <mat-label>Date of Birth: </mat-label>
                 <input matInput name="dateOfBirth" ngModel required>
@@ -69,16 +72,15 @@
     </div>
 
     <div class="login-container" *ngIf="adminSelected.deleteEmployee">
-        <h1>Delete Employee</h1>
         <form class="example-form" #deleteEmployeeForm = "ngForm" (ngSubmit)="deleteEmployee(deleteEmployeeForm)" method="POST">
             <mat-form-field class="full-width">
-                <mat-label>User Id</mat-label>
-                <input matInput name="userId" ngModel required>
+                <mat-label>User Email: </mat-label>
+                <input matInput name="email" ngModel required>
             </mat-form-field>
             
             <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Delete</button>
             <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>               
         </form>
     </div>
-</body>
-</html>
+    
+</div>

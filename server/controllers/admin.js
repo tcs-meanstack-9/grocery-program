@@ -37,9 +37,9 @@ exports.addEmployee = async (req, res, next) => {
 }
 
 exports.deleteEmployee = async (req, res, next) => {
-    Employee.deleteOne({email:req.body.userId},(err,result)=> {
+    Employee.deleteOne({email:req.body.email},(err,result)=> {
         if(!err){
-            if(result.deletedCount>0){
+            if(result.deletedCount > 0) {
                 res.send("Record deleted successfully")
             } else {
                 res.send("Record not present");

@@ -9,7 +9,7 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-
+  nonMatchingPassword:boolean = false;
   adminSelected = {
     addEmployee: false,
     deleteEmployee: false,
@@ -25,8 +25,14 @@ export class AdminComponent implements OnInit {
   }
 
   addEmployee(addEmployeeForm:NgForm) {
-    this.adminService.addEmployee(addEmployeeForm.value);
-    addEmployeeForm.resetForm();
+    let empForm = addEmployeeForm.value;
+    if(empForm.confirmedPassword != empForm.password) {
+      this.nonMatchingPassword = true;
+    } else {
+      this.adminService.addEmployee(addEmployeeForm.value);
+      this.nonMatchingPassword = false;
+      addEmployeeForm.resetForm();
+    }
   }
 
   deleteEmployee(deleteEmployeeForm:NgForm) {

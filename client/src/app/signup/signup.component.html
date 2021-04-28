@@ -1,6 +1,13 @@
+
+<h1 style="text-align: center;">User Sign Up</h1>
 <div class="login-container">
-    <form id="signup-form" class="example-form" #userLoginForm = "ngForm" (ngSubmit)="signup(userLoginForm.value)" method="POST">
-        
+
+    <label *ngIf="nonMatchingPassword" style="color: red;">
+        *Passwords do not match.
+        <br/><br/>
+    </label>
+
+    <form class="example-form" #userSignupForm = "ngForm" (ngSubmit)="signup(userSignupForm.value)" method="POST">
         <mat-form-field class="full-width">
             <mat-label>First Name:</mat-label>
             <input matInput name="firstName" ngModel required>
@@ -19,6 +26,11 @@
         <mat-form-field class="full-width">
             <mat-label>Password: </mat-label>
             <input type="password" matInput name="password" minlength="6" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Confirm Password: </mat-label>
+            <input type="password" matInput name="confirmedPassword" minlength="6" ngModel required>
         </mat-form-field>
   
         <mat-form-field class="full-width">
