@@ -42,7 +42,7 @@ const routes: Routes = [
     ProductDialogComponent,
     LoginComponent,
     SignupComponent,
-    SignupConfirmationComponent
+    SignupConfirmationComponent,
     HomeComponent,
     EmployeeDashboardComponent,
     EmployeeSigninComponent,

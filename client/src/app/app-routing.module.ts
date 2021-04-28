@@ -10,7 +10,7 @@ const routes: Routes = [
     {path:"signup", component:SignupComponent},
     {path:"dashboard", component:DashboardComponent},
     {path: "signup-confirmation", component:SignupConfirmationComponent},
-    {path:"", redirectTo:"login", pathMatch:"full"}
+    {path:"", redirectTo:"home", pathMatch:"full"}
 ];
 
 @NgModule({

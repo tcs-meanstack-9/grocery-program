@@ -19,12 +19,6 @@ export class LoginComponent implements OnInit {
   async login(userLoginForm:any) {
      let userObj = await this.userService.login(userLoginForm);
      this.router.navigate(['dashboard']);
-
-  login() {
-    if (this.data.name === 'admin' && this.data.password === 'password') {
-      sessionStorage.setItem('isAdminLoggedIn', 'true');
-      this.router.navigate(['dashboard']);
-    }
   }
  
   signup():void {
