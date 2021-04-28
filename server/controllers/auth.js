@@ -8,7 +8,8 @@ exports.signin = async (req, res, next) => {
     try {
         const userId = req.body.userId;
         const password = req.body.password;
-
+       console.log("hello");
+       console.log("hello world");
         const user = await User.findOne({userId}).select("+password");
         if(!user) {
             const error = new Error("Wrong Credentials1");
@@ -34,7 +35,7 @@ exports.signup = async(req, res, next) => {
     try{
         ValidationHandler(req);
 
-        const existingUser = await User.findOne({userId:req.body.userId});
+        const existingUser = await User.findOne({email:req.body.email});
         if(existingUser) {
             const error = new Error("Email already used");
             error.statusCode = 403;

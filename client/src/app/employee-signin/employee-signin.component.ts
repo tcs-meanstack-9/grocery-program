@@ -16,30 +16,26 @@ export class EmployeeSigninComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getEmployees();
-    
+    //load all employees into employeeList
   }
 
   login() {
-    console.log("checking credentials");
     if (true) {
       console.log("logged employee in ~~");
       sessionStorage.setItem('employeeLoggedIn', 'true');
-      console.log("Found Employees: " + this.employeeList);
+      this.router.navigate(['employee-dashboard']);
+      
     }
   }
   checkCredentials(){
     
-    //
+    
     //Is this.data.email in the database as an email? 
     //If so, is that email associated with this password??
     //If yes, log in.
-    return true;
   }
   getEmployees() {
-    console.log("getEmployees() called from SignIn component")
     this.empSer.getEmployees()
       .subscribe((data: any) => this.employeeList = data);
   }
-  
 }

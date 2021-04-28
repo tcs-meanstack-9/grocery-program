@@ -40,6 +40,6 @@ exports.hasfistName = body("firstName")
   .notEmpty()
   .withMessage("First name is required");
 
-exports.hasLastName = body("lastName")
+  exports.hasLastName = body("lastName")
   .notEmpty()
   .withMessage("Last name is required");

@@ -1,13 +1,6 @@
-
-<h1 style="text-align: center;">User Sign Up</h1>
 <div class="login-container">
-
-    <label *ngIf="nonMatchingPassword" style="color: red;">
-        *Passwords do not match.
-        <br/><br/>
-    </label>
-
-    <form class="example-form" #userSignupForm = "ngForm" (ngSubmit)="signup(userSignupForm.value)" method="POST">
+    <form id="signup-form" class="example-form" #userLoginForm = "ngForm" (ngSubmit)="signup(userLoginForm.value)" method="POST">
+        
         <mat-form-field class="full-width">
             <mat-label>First Name:</mat-label>
             <input matInput name="firstName" ngModel required>
@@ -50,6 +43,6 @@
 
         <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Sign Up</button>
         <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>
-        <button mat-raised-button class="full-width m-t-15" type="button" style="background-color: green; color:white" routerLink="/login">Sign in</button>
+        <button mat-raised-button class="full-width m-t-15" type="button" style="background-color: green; color:white" (click)="userSignin()">Sign in</button>
     </form>
   </div>
