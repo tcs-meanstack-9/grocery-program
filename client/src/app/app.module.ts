@@ -23,6 +23,8 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminService } from './admin.service';
 
 
 const routes: Routes = [
@@ -30,8 +32,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path:'employeeLogin',component:EmployeeSigninComponent},
-  
-
 ];
 
 @NgModule({
@@ -42,10 +42,12 @@ const routes: Routes = [
     ProductDialogComponent,
     LoginComponent,
     SignupComponent,
-    SignupConfirmationComponent
+    SignupConfirmationComponent,
     HomeComponent,
     EmployeeDashboardComponent,
     EmployeeSigninComponent,
+    UserDashboardComponent,
+    AdminComponent,
     EmployeeSendRequestComponent,
     UserDashboardComponent
   ],
@@ -59,7 +61,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+  providers: [UserService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

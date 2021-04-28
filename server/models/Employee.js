@@ -6,8 +6,10 @@ const EmployeeSchema = new Schema({
     lastName:String,
     email:String,
     phoneNumber:String,
-    id:number,
-    password?:String
+    id:Number,
+    password:String,
+    dateOfBirth:String,
+    address:String
 });
 
 module.exports = mongoose.model("Employees", EmployeeSchema);
