@@ -18,8 +18,4 @@ export class SignupComponent implements OnInit {
     await this.userService.signup(userLoginForm);
     this.router.navigate(["signup-confirmation"])
   }
-  
-  userSignin():void {
-   this.router.navigate(["login"]);
-  }
 }

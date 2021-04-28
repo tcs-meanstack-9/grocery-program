@@ -10,18 +10,24 @@
 </head>
 
 <body>
-    <div class="container">
-    <h2>Admin Dashboard</h2>
-    <ul class="nav nav-pills">
-        <li><button type="button" class="btn btn-primary" (click)="toggleAddEmployee()">Add Employee</button></li>
-        <li><button type="button" class="btn btn-primary" (click)="toggleDeleteEmployee()">Delete Employee</button></li>
-        <li><button type="button" class="btn btn-primary" (click)="generateReports()">Generate Reports</button></li>
-    </ul>
+    <div class="container" style="margin-left: 0;">
+        <h2>Admin Dashboard</h2>
+        <ul class="nav nav-pills" style="size: 100px;">
+            <!-- Template for other admin functionalities
+            <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected()">-</button></li>
+            <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected()">-</button></li>
+            <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected()">-</button></li>
+            <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected()">-</button></li>
+            -->
+            <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected('addEmployee')">Add Employee</button></li>
+            <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected('deleteEmployee')">Delete Employee</button></li>
+            <li><button type="button" class="btn btn-primary" (click)="adminFeatureSelected('generateReports')">Generate Reports</button></li>
+        </ul>
     </div>
 
     <div class="login-container" *ngIf="adminSelected.addEmployee">
         <h1>Add Employee</h1>
-        <form class="example-form" #addEmployeeForm = "ngForm" (ngSubmit)="addEmployee(addEmployeeForm.value)" method="POST">
+        <form class="example-form" #addEmployeeForm = "ngForm" (ngSubmit)="addEmployee(addEmployeeForm)" method="POST">
             <mat-form-field class="full-width">
                 <mat-label>First Name:</mat-label>
                 <input matInput name="firstName" ngModel required>
@@ -39,12 +45,7 @@
     
             <mat-form-field class="full-width">
                 <mat-label>Password: </mat-label>
-                <input type="password" matInput name="password" minlength="6" ngModel required>
-            </mat-form-field>
-    
-            <mat-form-field class="full-width">
-                <mat-label>Confirm Password: </mat-label>
-                <input type="password" matInput name="confirmedPassword" minlength="6" ngModel required>
+                <input type="text" matInput name="password" minlength="6" ngModel required>
             </mat-form-field>
       
             <mat-form-field class="full-width">
@@ -61,7 +62,6 @@
                 <mat-label>Address: </mat-label>
                 <input matInput name="address" ngModel required>
             </mat-form-field>
-    
             
             <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Add</button>
             <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>                
@@ -70,7 +70,7 @@
 
     <div class="login-container" *ngIf="adminSelected.deleteEmployee">
         <h1>Delete Employee</h1>
-        <form class="example-form" #deleteEmployeeForm = "ngForm" (ngSubmit)="deleteEmployee(deleteEmployeeForm.value)" method="POST">
+        <form class="example-form" #deleteEmployeeForm = "ngForm" (ngSubmit)="deleteEmployee(deleteEmployeeForm)" method="POST">
             <mat-form-field class="full-width">
                 <mat-label>User Id</mat-label>
                 <input matInput name="userId" ngModel required>

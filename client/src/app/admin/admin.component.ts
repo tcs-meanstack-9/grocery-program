@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -15,31 +17,25 @@ export class AdminComponent implements OnInit {
   }
 
   constructor(
-    public adminService:AdminService
+    public adminService:AdminService,
+    public router:Router
   ) {}
 
   ngOnInit(): void {
   }
-  
-  toggleAddEmployee() {
-    this.adminFeatureSelected("addEmployee");
+
+  addEmployee(addEmployeeForm:NgForm) {
+    this.adminService.addEmployee(addEmployeeForm.value);
+    addEmployeeForm.resetForm();
   }
 
-  toggleDeleteEmployee() {
-    this.adminFeatureSelected("deleteEmployee");
+  deleteEmployee(deleteEmployeeForm:NgForm) {
+    this.adminService.deleteEmployee(deleteEmployeeForm.value);
+    deleteEmployeeForm.resetForm();
   }
-
-  async addEmployee(addEmployeeForm:any) {
-    await this.adminService.addEmployee(addEmployeeForm);
-  }
-
-  async deleteEmployee(deleteEmployeeForm:any) {
-    await this.adminService.deleteEmployee(deleteEmployeeForm);
-  }
-
 
   generateReports() {
-    this.adminFeatureSelected("generateReports");
+    console.log("Generate reports");
   }
 
   adminFeatureSelected(command:string) {

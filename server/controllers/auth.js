@@ -34,7 +34,7 @@ exports.signup = async(req, res, next) => {
     try{
         ValidationHandler(req);
 
-        const existingUser = await User.findOne({email:req.body.email});
+        const existingUser = await User.findOne({userId:req.body.userId});
         if(existingUser) {
             const error = new Error("Email already used");
             error.statusCode = 403;

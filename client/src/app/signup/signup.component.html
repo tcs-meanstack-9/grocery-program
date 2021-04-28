@@ -20,11 +20,6 @@
             <mat-label>Password: </mat-label>
             <input type="password" matInput name="password" minlength="6" ngModel required>
         </mat-form-field>
-
-        <mat-form-field class="full-width">
-            <mat-label>Confirm Password: </mat-label>
-            <input type="password" matInput name="confirmedPassword" minlength="6" ngModel required>
-        </mat-form-field>
   
         <mat-form-field class="full-width">
             <mat-label>Date of Birth: </mat-label>
@@ -43,6 +38,6 @@
 
         <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Sign Up</button>
         <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>
-        <button mat-raised-button class="full-width m-t-15" type="button" style="background-color: green; color:white" (click)="userSignin()">Sign in</button>
+        <button mat-raised-button class="full-width m-t-15" type="button" style="background-color: green; color:white" routerLink="/login">Sign in</button>
     </form>
   </div>

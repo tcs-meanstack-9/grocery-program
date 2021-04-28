@@ -24,13 +24,12 @@ import { EmployeeSendRequestComponent } from './employee-send-request/employee-s
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminService } from './admin.service';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  
-
 ];
 
 @NgModule({
@@ -59,7 +58,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+  providers: [UserService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
