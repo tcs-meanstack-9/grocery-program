@@ -20,16 +20,18 @@ import { SignupConfirmationComponent } from './signup-confirmation/signup-confir
 
 import { HomeComponent } from './home/home.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
-import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
+import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminService } from './admin.service';
 
+
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  { path:'',component:HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path:'employeeLogin',component:EmployeeSigninComponent},
 ];
 
 @NgModule({
@@ -43,10 +45,11 @@ const routes: Routes = [
     SignupConfirmationComponent,
     HomeComponent,
     EmployeeDashboardComponent,
-    EmployeeSendRequestComponent,
     EmployeeSigninComponent,
     UserDashboardComponent,
-    AdminComponent
+    AdminComponent,
+    EmployeeSendRequestComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
