@@ -6,14 +6,11 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
-
 const routes: Routes = [
     {path:"",component:HomeComponent},
     {path:"login",component:LoginComponent},
     {path:"dashboard",component:DashboardComponent},
-    {path:"employeeLogin",component:EmployeeSigninComponent},
-    
-
+    {path:"employeeLogin",component:EmployeeSigninComponent}
 ];
 
 @NgModule({

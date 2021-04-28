@@ -15,8 +15,6 @@ export class UserService {
   userObj:User = {};
 
   signup(userLoginForm:any):any {
-    this.http.post(`${this.baseUrl}/signup`, userLoginForm).
-    subscribe(result=>console.log(result), error=>console.log(error));
     return new Promise((resolve, reject)=>{
       this.http.post(`${this.baseUrl}/signup`, userLoginForm).subscribe(result=>{
         this.userObj = result;
@@ -32,6 +30,7 @@ export class UserService {
     return new Promise((resolve, reject)=>{
       this.http.post(`${this.baseUrl}/signin`, userLoginForm).subscribe(result=>{
         this.userObj = result;
+        localStorage.setItem("remainingAttempts", '3');
         resolve(result);
       }, (err) => {
         reject(err);
