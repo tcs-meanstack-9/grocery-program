@@ -8,6 +8,7 @@ const dbName = "grocers";
 const uri =  'mongodb://localhost:27017/grocers';
 
 exports.getAllEmployees = asyncHandler(async (req, res, next) => {
+  console.log("getAllEmployees called from employeeController(Backend)");
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
       await client.connect();

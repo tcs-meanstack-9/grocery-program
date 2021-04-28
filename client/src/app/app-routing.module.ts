@@ -14,6 +14,7 @@ const routes: Routes = [
     {path:"signup-confirmation", component:SignupConfirmationComponent},
     {path:"admin", component:AdminComponent},
     {path:"home", component:HomeComponent},
+
     {path:"", redirectTo:"home", pathMatch:"full"}
 ];
 

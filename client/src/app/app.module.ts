@@ -23,6 +23,9 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { EmployeeUpdateOrderStatusComponent } from './employee-update-order-status/employee-update-order-status.component';
+import { EmployeeUnlockUserComponent } from './employee-unlock-user/employee-unlock-user.component';
+import { EmployeeEditProfileComponent } from './employee-edit-profile/employee-edit-profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminService } from './admin.service';
 
@@ -49,7 +52,10 @@ const routes: Routes = [
     UserDashboardComponent,
     AdminComponent,
     EmployeeSendRequestComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    EmployeeUpdateOrderStatusComponent,
+    EmployeeUnlockUserComponent,
+    EmployeeEditProfileComponent
   ],
   imports: [
     BrowserModule,

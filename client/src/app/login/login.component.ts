@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
   }
 
   async login(userLoginForm:any) {
+
+     let userObj = await this.userService.login(userLoginForm);
+     this.router.navigate(['dashboard']);
     let attemptsLeft = parseInt(localStorage.getItem("remainingAttempts"));
 
     // For testing: Use to reset the number of login attempts until raising a ticket is finished
