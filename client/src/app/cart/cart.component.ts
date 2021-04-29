@@ -28,7 +28,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartProducts= this.cartService.getItems();
-
     
   }
 
@@ -85,43 +84,7 @@ export class CartComponent implements OnInit {
       .subscribe((data: any) => this.orderList = data);
   }
 
-  increaseQuantity(product :Product) {
-    console.log(product.cartQuantity);
-    if(typeof product.cartQuantity =='undefined' || product.cartQuantity == NaN)
-    {
-      product.cartQuantity=1;
-      this.cartService.addToCart(product);
-    }
-    else{
-      product.cartQuantity++;
-      this.cartService.updateQuantity(product.name,product.cartQuantity);
-      // product.cartQuantity= (+product.cartQuantity+1).toString();
-    }
-   
-    
-  }
-
-  decreaseQuantity(product:Product) {
-    
-    if(product.cartQuantity>1)
-    {
-     product.cartQuantity--;
-     this.cartService.updateQuantity(product.name,product.cartQuantity);
-    }
-    else{
-      if(product.cartQuantity==1)
-      {
-      this.cartService.deleteProductFromCart(product.name); 
-      }
-      product.cartQuantity=0;
-    }
-  
-   
-  }
-
-
-   
-   
+ 
    
   }
 

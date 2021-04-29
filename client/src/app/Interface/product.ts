@@ -5,4 +5,5 @@ export class Product {
     description: string;
     image: string;
     cartQuantity:number=0;
+    subTotal :number=0;
   }

@@ -27,10 +27,9 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts()
     .subscribe((data: any) => this.productList = data);
-   // this.productList=this.cartProducts;
     for(var i=0;i<this.productList.length;i++)
     {
-      this.productList[i].cartQuantity=2;
+      this.productList[i].cartQuantity=0;
     }
   }
  
@@ -45,6 +44,7 @@ export class UserDashboardComponent implements OnInit {
     if(typeof product.cartQuantity =='undefined' || product.cartQuantity == NaN)
     {
       product.cartQuantity=1;
+      
       this.cartService.addToCart(product);
     }
     else{
@@ -52,6 +52,8 @@ export class UserDashboardComponent implements OnInit {
       this.cartService.updateQuantity(product.name,product.cartQuantity);
       // product.cartQuantity= (+product.cartQuantity+1).toString();
     }
+
+    product.subTotal= Number(product.price) * product.cartQuantity;
    
     
   }
@@ -70,6 +72,8 @@ export class UserDashboardComponent implements OnInit {
       }
       product.cartQuantity=0;
     }
+
+    product.subTotal= Number(product.price) * product.cartQuantity;
   
    
   }
@@ -84,6 +88,7 @@ export class UserDashboardComponent implements OnInit {
     this.productList.forEach(function(item)
     {
       item.cartQuantity=0;
+      item.subTotal=0;
     })
    this.cartService.clearCart();
   }

@@ -8,8 +8,6 @@ exports.signin = async (req, res, next) => {
     try {
         const userId = req.body.userId;
         const password = req.body.password;
-       console.log("hello");
-       console.log("hello world");
         const user = await User.findOne({userId}).select("+password");
         if(!user) {
             const error = new Error("Wrong Credentials1");

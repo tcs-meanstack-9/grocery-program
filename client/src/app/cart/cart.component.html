@@ -20,20 +20,20 @@
         <img mat-card-image class="image" [src]="product.image || defaultImg" [alt]="product.name">
         <mat-card-content>
           <div class="m-t-10 title">
-            {{ product.name }}
+         Name :   {{ product.name }}
+          </div>
+          
+          <div class="m-t-10">
+           Description:    {{ product.description }}
           </div>
           <div class="m-t-10">
-            Price: <span class="price">{{ product.price }} $</span>
-          </div>
-          <div class="m-t-10 description">
-            {{ product.description }}
+          Cart Quantity: <span class="price">{{ product.cartQuantity }}</span>
+        </div>
+          <div class="m-t-10">
+            Price SubTotal: <span class="price">{{ product.subTotal }} $</span>
           </div>
         </mat-card-content>
-        <!-- <mat-card-actions >
-          <button  mat-flat-button color="primary" class="cartButton"  (click)="addToCart(product)">Add To Cart</button>
-          <button  mat-flat-button color="primary"  class="cartButton"  (click)="deleteProduct(product)">Remove Item</button>
-        </mat-card-actions> -->
-        Cart Quantity: <span class="price">{{ product.cartQuantity }}</span>
+    
       </mat-card>
       
     </div>
