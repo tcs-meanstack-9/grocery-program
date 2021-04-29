@@ -1,0 +1,62 @@
+
+<div class="container">
+    
+    <div fxLayout="row" class="add-button1">
+      <button mat-raised-button color="primary" (click)="logout()">logout</button>
+    </div>
+
+ 
+    <div>
+        <h2>Welcome to the User dashboard component</h2>
+        Please select one of the following options:<br/>
+        <input type="button" value="Log Out"/><br/>
+        <input type="button" value="View Order Status"/><br/>
+        <input type="button" value="View Funds"/><br/>
+        <input type="button" value="Edit Profile"/><br/>
+    </div>
+    
+    <div class="product-container m-t-10">
+      <h1>Order Details :</h1>
+      <mat-card class="product-card" *ngFor="let order of orderList">
+        
+        <!-- <img mat-card-image class="image" [src]="product.image || defaultImg" [alt]="product.name"> -->
+        <mat-card-content>
+            <div class="m-t-10 title">
+           Name:  {{ order.firstName }}  {{order.lastName}}
+              </div>
+          <div class="m-t-10 title">
+          Address :  {{ order.address }}
+          </div>
+          <div class="m-t-10 title">
+            Order Amount: <span class="price">{{ order.orderAmount }} $</span>
+          </div>
+          <div class="m-t-10 title">
+         Order Date : {{ order.orderDate }}
+          </div>
+          <h3>Product Details :</h3>
+          <div *ngFor="let product of order.products">
+            <div class="m-t-10 title">
+                Product Name :  {{ product.name }}
+                </div>
+                <div class="m-t-10 title">
+                    Product Quantity :  {{ product.cartQuantity }}
+                    </div>
+                <br>
+
+          </div>
+        </mat-card-content>
+        <!-- <mat-card-actions >
+          <button  mat-flat-button color="primary" class="cartButton"  (click)="addToCart(product)">Add To Cart</button>
+          <button  mat-flat-button color="primary"  class="cartButton"  (click)="deleteProduct(product)">Remove Item</button>
+        </mat-card-actions> -->
+       
+      </mat-card>
+      
+    </div>
+     <button  mat-flat-button color="primary" class="cartButton" (click)="gotoProductList()" >Go To Product List</button>
+</div>
+  
+  
+  
+
+

@@ -15,4 +15,8 @@ export class SignupConfirmationComponent implements OnInit {
   ngOnInit(): void {
     this.userName = JSON.parse(sessionStorage.getItem("user")).user.userId;
   }
+
+  userSignin():void {
+    this.router.navigate(["login"]);
+  }
 }

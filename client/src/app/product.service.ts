@@ -2,13 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
-export interface Product {
-  name: string;
-  price: string;
-  description: string;
-  image: string;
-}
+import { Product } from "./Interface/product";
 
 @Injectable({
   providedIn: 'root'

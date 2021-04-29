@@ -23,12 +23,11 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { EmployeeSigninComponent } from './employee-signin/employee-signin.component';
 import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { EmployeeUpdateOrderStatusComponent } from './employee-update-order-status/employee-update-order-status.component';
-import { EmployeeUnlockUserComponent } from './employee-unlock-user/employee-unlock-user.component';
-import { EmployeeEditProfileComponent } from './employee-edit-profile/employee-edit-profile.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminService } from './admin.service';
-import { UserLoginComponent } from './user-login/user-login.component';
+import { CartService } from './cart.service';
+import { CartComponent } from './cart/cart.component';
+
+import { OrderService } from "./order.Service";
+import { OrderComponent } from './order/order.component';
 
 
 const routes: Routes = [
@@ -36,6 +35,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path:'employeeLogin',component:EmployeeSigninComponent},
+  {path:"userLogin",component:UserDashboardComponent},
+  {path:"cart",component:CartComponent},
+  {path:"order",component:OrderComponent},
+
 ];
 
 @NgModule({
@@ -50,14 +53,10 @@ const routes: Routes = [
     HomeComponent,
     EmployeeDashboardComponent,
     EmployeeSigninComponent,
-    UserDashboardComponent,
-    AdminComponent,
     EmployeeSendRequestComponent,
     UserDashboardComponent,
-    EmployeeUpdateOrderStatusComponent,
-    EmployeeUnlockUserComponent,
-    EmployeeEditProfileComponent,
-    UserLoginComponent
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +68,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService, AdminService],
+  providers: [UserService,CartService,OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
