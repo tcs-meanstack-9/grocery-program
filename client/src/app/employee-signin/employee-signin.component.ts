@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
+import { Employee } from '../model.employee';
 
 @Component({
   selector: 'app-employee-signin',
@@ -10,13 +11,14 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeSigninComponent implements OnInit {
   data = { email: '', password: ''};
   employeeList = [];
+  employees?:Array<Employee>;
   constructor(
     public router: Router,
     public empSer:EmployeeService
   ) { }
 
   ngOnInit(): void {
-    //load all employees into employeeList
+    this.empSer.retrieveAllEmployees().subscribe(result=>this.employees=result);
   }
 
   login() {

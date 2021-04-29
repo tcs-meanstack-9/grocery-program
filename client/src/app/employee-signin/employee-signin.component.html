@@ -7,4 +7,18 @@
         <input type="text" name="password" [(ngModel)]="data.password"/><br/>
         <button type="submit">Sign In</button>
     </form>
+    <div>
+        <table border="1">
+                <tr>
+                    <th>eId</th>
+                    <th>EmployeeName</th>
+                    <th>Phone number</th>
+                </tr>
+                <tr *ngFor="let ee of employees">
+                        <td>{{ee._id}}</td>
+                        <td>{{ee.firstName}}</td>
+                        <td>{{ee.phoneNumber}}</td>
+                </tr>
+        </table>
+    </div>
 </div>
