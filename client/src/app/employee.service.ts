@@ -22,10 +22,9 @@ export class EmployeeService {
   public baseUrl = 'http://localhost:4100/v1/employees';
 
   getEmployees(): Observable<Employee[]> {
-    console.log("getEmployees() called from employeeService")
-    return this.http.get<Employee[]>(`${this.baseUrl}/getallemployees`)
+    return this.http.get<Employee[]>(`${this.baseUrl}/getallproducts`)
     .pipe(
-      catchError(this.handleError<Employee[]>('getemployees', []))
+      catchError(this.handleError<Employee[]>('getProducts', []))
     );
   }
   private handleError<T>(operation = 'operation', result?: T) {

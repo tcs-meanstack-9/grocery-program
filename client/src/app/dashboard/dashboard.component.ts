@@ -3,11 +3,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { ProductService } from '../product.service';
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
   productList = [];
   defaultImg = 'assets/image/groceries.png';

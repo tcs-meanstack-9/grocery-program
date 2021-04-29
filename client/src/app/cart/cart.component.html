@@ -1,11 +1,9 @@
 
 <div class="container">
-  
-
+    
     <div fxLayout="row" class="add-button1">
       <button mat-raised-button color="primary" (click)="logout()">logout</button>
     </div>
-
 
  
     <div>
@@ -18,33 +16,31 @@
     </div>
     
     <div class="product-container m-t-10">
-      <mat-card class="product-card" *ngFor="let product of productList">
+      <mat-card class="product-card" *ngFor="let product of cartProducts">
         <img mat-card-image class="image" [src]="product.image || defaultImg" [alt]="product.name">
         <mat-card-content>
           <div class="m-t-10 title">
-           Product Name: {{ product.name }}
+            {{ product.name }}
           </div>
           <div class="m-t-10">
-            Product  Price: <span class="price">{{ product.price }} $</span>
+            Price: <span class="price">{{ product.price }} $</span>
           </div>
-          <div class="m-t-10 ">
-          Product Description:  {{ product.description }}
+          <div class="m-t-10 description">
+            {{ product.description }}
           </div>
         </mat-card-content>
-        <mat-card-actions >
+        <!-- <mat-card-actions >
           <button  mat-flat-button color="primary" class="cartButton"  (click)="addToCart(product)">Add To Cart</button>
           <button  mat-flat-button color="primary"  class="cartButton"  (click)="deleteProduct(product)">Remove Item</button>
-        </mat-card-actions>
-      
-        Cart Quantity: <span class="price"><button type="button" (click)="deleteProduct(product)">- </button>
-          {{ product.cartQuantity }}<button type="button" (click)="addToCart(product)">+</button></span>
-    
+        </mat-card-actions> -->
+        Cart Quantity: <span class="price">{{ product.cartQuantity }}</span>
       </mat-card>
       
     </div>
-    <button  mat-flat-button color="primary" class="cartButton"  (click)="checkOut()"  >Checkout</button>
-    <button  mat-flat-button color="primary" class="cartButton"  (click)="clearCart()"  >Clear Cart</button>
+    <button  mat-flat-button color="primary" class="cartButton" (click)="placeOrder()" >Place Order</button>
+     <button  mat-flat-button color="primary" class="cartButton" (click)="gotoProductList()" >Go To Product List</button>
 </div>
+  
   
   
 

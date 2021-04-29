@@ -10,8 +10,8 @@
     
     .product-container {
       .product-card {
-        max-width: 200px;
-       height: 350px;;
+        max-width: 400px;
+        width: 400px;
         margin: 10px;
         display: inline-block;
         .image {
@@ -29,7 +29,7 @@
           font-weight: 600;
         }
         .description {
-          height: 45px;
+          height: 65px;
           display: block;
           overflow-y: hidden;
         }

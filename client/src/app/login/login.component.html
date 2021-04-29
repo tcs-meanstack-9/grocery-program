@@ -1,15 +1,20 @@
 <h1>Admin Panel</h1>
 
 <div class="login-container">
-  <form class="example-form">
+  <form class="example-form" #userLoginForm = "ngForm" (ngSubmit)="login(userLoginForm.value)" method="POST">
+
     <mat-form-field class="full-width">
       <mat-label>User name</mat-label>
-      <input matInput name="name" [(ngModel)]="data.name" required>
+      <input matInput name="userId" ngModel required>
     </mat-form-field>
+
     <mat-form-field class="full-width">
       <mat-label>Password</mat-label>
-      <input matInput name="password" type="password" [(ngModel)]="data.password" required>
+      <input matInput name="password" type="password" ngModel required>
     </mat-form-field>
-    <button mat-raised-button class="full-width m-t-15" color="primary" (click)="login()">Login</button>
+    
+    <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Login</button>
+    <button mat-raised-button class="full-width m-t-15" style="background-color: green; color: white;" (click)="signup()">Sign up</button>
+    
   </form>
 </div>
