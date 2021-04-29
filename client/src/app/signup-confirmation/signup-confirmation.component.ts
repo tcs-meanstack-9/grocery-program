@@ -17,6 +17,6 @@ export class SignupConfirmationComponent implements OnInit {
   }
 
   userSignin():void {
-    this.router.navigate(["login"]);
+    this.router.navigate(["user-login"]);
   }
 }

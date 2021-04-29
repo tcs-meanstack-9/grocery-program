@@ -8,18 +8,19 @@ import { UserService } from '../user.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  nonMatchingPassword:boolean = false;
 
   constructor(public router: Router, public userService:UserService) { }
 
   ngOnInit(): void {
   }
 
-  async signup(userLoginForm:any) {
-    await this.userService.signup(userLoginForm);
-    this.router.navigate(["signup-confirmation"])
-  }
-  
-  userSignin():void {
-   this.router.navigate(["login"]);
+  async signup(userSignupForm:any) {
+    if(userSignupForm.confirmedPassword != userSignupForm.password){
+      this.nonMatchingPassword = true;
+    } else {
+      await this.userService.signup(userSignupForm);
+      this.router.navigate(["signup-confirmation"])
+    }
   }
 }
