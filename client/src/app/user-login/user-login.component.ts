@@ -10,7 +10,8 @@ import { UserService } from '../user.service';
 export class UserLoginComponent implements OnInit {
   remainingAttempts:number = 3;
   showRemainingAttempts:boolean = false;
-
+  showLockedOut:boolean = false;
+  
   constructor(public router: Router, public userService:UserService) { 
   }
 
@@ -36,15 +37,20 @@ export class UserLoginComponent implements OnInit {
     //if(attempsLeft > 0 || raisedTicketApproved == true) {
     if(attemptsLeft > 0) {
       attemptsLeft--;
-      localStorage.setItem("remainingAttempts", (attemptsLeft).toString());;
-
       this.remainingAttempts = attemptsLeft;
       this.showRemainingAttempts = true;
 
+      if(attemptsLeft == 0) {
+        this.showRemainingAttempts = false;
+        this.showLockedOut = true;
+        console.log("Please raise a support ticket to log back in.")
+      } 
+
+      localStorage.setItem("remainingAttempts", (attemptsLeft).toString());;
       await this.userService.login(userLoginForm);
       this.router.navigate(['user-dashboard']);
     } else {
-      console.log("Please raise a support ticket to log back in.")
+      this.showRemainingAttempts = false;
     }
   }
 }

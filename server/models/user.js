@@ -1,22 +1,3 @@
-/*let mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
-
-let UserSchema = new mongoose.Schema({
-    _id:String, 
-    firstName:String, 
-    lastName:String,
-    email:String,
-    password:String,
-    dateOfBirth:String,
-    phoneNumber:String,
-    address:String,
-    validToLogin:Boolean
-});
-
-let UserModel = mongoose.model("Users", UserSchema);
-
-module.exports = UserModel;*/
-
 let mongoose = require("mongoose");
 let bcrypt = require("bcryptjs");
 
