@@ -37,7 +37,7 @@ export class UserDashboardComponent implements OnInit {
 
   logout() {
     sessionStorage.removeItem('isAdminLoggedIn');
-    this.router.navigate(['login']);
+    this.router.navigate(['user-login']);
   }
 
   addToCart(product :Product) {
