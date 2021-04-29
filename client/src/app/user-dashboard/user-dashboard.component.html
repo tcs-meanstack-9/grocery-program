@@ -34,11 +34,17 @@
         <mat-card-actions >
           <button  mat-flat-button color="primary" class="cartButton"  (click)="addToCart(product)">Add To Cart</button>
           <button  mat-flat-button color="primary"  class="cartButton"  (click)="deleteProduct(product)">Remove Item</button>
+
+
         </mat-card-actions>
       
         Cart Quantity: <span class="price"><button type="button" (click)="deleteProduct(product)">- </button>
           {{ product.cartQuantity }}<button type="button" (click)="addToCart(product)">+</button></span>
     
+
+          <div class="m-t-10">
+            Product Price Subtotal: <span class="price">{{ product.subTotal }}  $</span>
+          </div>
       </mat-card>
       
     </div>
