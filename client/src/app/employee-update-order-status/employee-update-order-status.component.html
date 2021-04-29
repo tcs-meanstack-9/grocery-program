@@ -1,1 +1,15 @@
-<p>employee-update-order-status works!</p>
+<form #orderRef="ngForm" (ngSubmit)="updateStatus(orderRef)">
+    <label>Order ID</label>
+    <input type="text" name="orderID" ngModel><br>
+    <label for="">Status</label>
+    <input type="browsers" name="newOrderStatus" ngModel><br>
+    
+        <datalist id="browsers" ng-model>
+            <option value="Shipped"></option>
+            <option value="Cancelled"></option>
+            <option value="Out for Delivery"></option>
+            <option value="Delivered"></option>
+        </datalist>
+
+        <input type="submit" value="Update Order Status"/>
+</form>

@@ -1,1 +1,6 @@
-<p>employee-unlock-user works!</p>
+<form #userRef="ngForm" (ngSubmit)="unlockUser(userRef)">
+    <label>User ID</label>
+    <input type="text" name="id" ngModel><br>
+    <input type="submit" value="update status">
+    {{userMSg}}
+</form>

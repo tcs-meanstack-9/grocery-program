@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-employee-send-request',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeSendRequestComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productSer:ProductService) { }
 
   ngOnInit(): void {
   }
 
+  updateProductQuantity(productRef:any){
+    console.log(productRef);
+    this.productSer.updateProductQuantity(productRef);
+  }
 }

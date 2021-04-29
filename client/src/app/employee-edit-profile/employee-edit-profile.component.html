@@ -1,1 +1,8 @@
-<p>employee-edit-profile works!</p>
+<form #passwordRef="ngForm" (ngSubmit)="updatePass(passwordRef.value)">
+    <label>Employee ID</label>
+    <input type="text" name="id" ngModel><br>
+    <label>New Password</label>
+    <input type="text" name="newPassword" ngModel><br>
+    <input type="submit" name= "Forgot Password" [disabled]='!passwordRef.valid'>
+    {{updateMSg}}
+</form>
