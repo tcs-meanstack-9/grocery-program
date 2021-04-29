@@ -90,33 +90,31 @@ export class DashboardComponent implements OnInit {
     let dupe:boolean = false;
     this.reportedProducts = [];
     this.grandTotal = 0;
-
-    //Iterate through customer orders to find duplicates and update quantity
+  
     this.orderList.forEach(order =>{
-      for(let p of this.reportedProducts) {
-        if(order.products.name == p.name) {
-          p.quantity = parseInt(p.quantity) + parseInt(order.orderAmount);
-          p.total = parseInt(p.quantity) * parseInt(p.price);
-          dupe = true;
-        } 
+      for(let i in order.products) {
+        for(let j in this.reportedProducts) {
+          if(order.products[i].name == this.reportedProducts[j].name) {
+            this.reportedProducts[j].quantity = parseInt(this.reportedProducts[j].quantity) + parseInt(order.products[i].cartQuantity);
+            this.reportedProducts[j].total = parseInt(this.reportedProducts[j].quantity) * parseInt(this.reportedProducts[j].price);
+            dupe = true;
+          }
+        }
+        if(!dupe) {
+          this.reportedProducts.push({
+            date:order.orderDate,
+            name:order.products[i].name,
+            price:order.products[i].price,          
+            quantity:order.products[i].cartQuantity,
+            total: parseInt(order.products[i].price) * parseInt(order.products[i].cartQuantity)
+          });
+        }
+        dupe = false;
       }
-
-      if(!dupe) {
-        this.reportedProducts.push({
-          date:order.orderDate,
-          name:order.products.name,
-          price:order.products.price,          
-          quantity:order.orderAmount,
-          total: parseInt(order.products.price) * parseInt(order.orderAmount)
-        });
-      }
-
-      dupe = false;
     });
-
     for(let product of this.reportedProducts) {
       this.grandTotal += product.total;
     }
     this.showReport = !this.showReport;
   }
-}
+  }
