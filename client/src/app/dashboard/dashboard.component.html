@@ -2,14 +2,17 @@
   <div fxLayout="row" class="add-button1">
     <button mat-raised-button color="primary" (click)="logout()">logout</button>
   </div>
+  
   <div fxLayout="row" class="add-button">
     <button mat-raised-button color="primary" (click)="openProductDialog()">Add new item</button>
     <br>
     <br>
     <button mat-raised-button color="primary">View Request</button>
+    <button mat-raised-button color="primary" (click)="this.showAddEmployee = !this.showAddEmployee">Add Employee</button>
+    <button mat-raised-button color="primary" (click)="this.showDeleteEmployee = !this.showDeleteEmployee">Delete Employee</button>
+    <button mat-raised-button color="primary" (click)="generateReports()">Show Orders Report</button>
   </div>
- 
-  
+
   <div class="product-container m-t-10">
     <mat-card class="product-card" *ngFor="let product of productList">
       <img mat-card-image class="image" [src]="product.image || defaultImg" [alt]="product.name">
@@ -33,6 +36,108 @@
       </mat-card-actions>
     </mat-card>
   </div>
+
+  <!-- Admin Add Employee Form ----------------------------->
+
+  <div>
+    <div class="login-container" *ngIf="showAddEmployee">
+      <label *ngIf="nonMatchingPassword" style="color: red;">
+          *Passwords do not match.
+          <br/><br/>
+      </label>
+
+      <form class="example-form" #addEmployeeForm = "ngForm" (ngSubmit)="addEmployee(addEmployeeForm)" method="POST">
+          <mat-form-field class="full-width">
+              <mat-label>First Name:</mat-label>
+              <input matInput name="firstName" ngModel required>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+              <mat-label>Last Name: </mat-label>
+              <input matInput name="lastName" ngModel required>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+              <mat-label>Email: </mat-label>
+              <input matInput name="email" ngModel required>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+              <mat-label>Password: </mat-label>
+              <input type="password" matInput name="password" minlength="6" ngModel required>
+          </mat-form-field>
+    
+          <mat-form-field class="full-width">
+              <mat-label>Confirm Password: </mat-label>
+              <input type="password" matInput name="confirmedPassword" minlength="6" ngModel required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+              <mat-label>Date of Birth: </mat-label>
+              <input matInput name="dateOfBirth" ngModel required>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+              <mat-label>Phone Number: </mat-label>
+              <input matInput name="phoneNumber" ngModel required>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+              <mat-label>Address: </mat-label>
+              <input matInput name="address" ngModel required>
+          </mat-form-field>
+          
+          <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Add</button>
+          <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>                
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Delete Employee Form ----------------------------->
+
+  <div class="login-container" *ngIf="this.showDeleteEmployee">
+      <form class="example-form" #deleteEmployeeForm="ngForm" (ngSubmit)="deleteEmployee(deleteEmployeeForm)" method="POST">
+          <mat-form-field class="full-width">
+              <mat-label>User Email: </mat-label>
+              <input matInput name="email" ngModel required>
+          </mat-form-field>
+          
+          <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Delete</button>
+          <button mat-raised-button class="full-width m-t-15" type="reset" style="background-color: red; color: white;">Reset</button>               
+      </form>
+  </div>
+
+  <!-- Building order reports table ----------------------------->
+
+  <div *ngIf="showReport">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Quanity</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of reportedProducts">
+          <td>{{order.date}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.price}}</td>
+          <td>{{order.quantity}}</td>
+          <td>${{order.total}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <label style="display:block; text-align:right; margin-right: 95px;">
+      Total Generated Revenue: ${{grandTotal}}
+    </label>
+  </div>
+
 </div>
+
+
 
 
