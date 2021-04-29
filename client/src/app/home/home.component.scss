@@ -1,27 +1,40 @@
+body{
+    background-image: url(https://cdn2.vectorstock.com/i/1000x1000/89/61/shopping-fun-for-everyone-cartoon-woman-with-cart-vector-18928961.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size:900px 700px;
+    background-position:center;
+    
+    background-position-y:370px;
+    background-position:right;
+    background-color: rgb(115, 183, 185);   
+}
+
 h1{
     font-weight: bold;
     text-align:center;
-    font-family: cursive;
-    font-size: 50px;
+    font-family:cursive;
+    font-size: 40px;
     color:rgba(59, 101, 121, 0.918);
     text-decoration:dashed;
     font-variant: small-caps;
     text-shadow:-2px -1px 0 rgb(135, 199, 241),-1px -1px;
-    background-color:rgb(187, 241, 216) ;
+    background-color:rgb(255, 255, 255) ;
 }
 
-div{
-    font-size: 50px;  
-    
-}
+
 
 button{
     font-size: 25px;
-    text-align:left;
-    margin-left: 50px;
-    color: rgba(59, 101, 121, 0.918);
-    border-color: blue;
+    text-align:center;
+    margin-left: 75px;
+    color: blue;
+    border-color: rgb(81, 237, 248);
+    font-weight: bold;
     
 }
+
+
+
 
 

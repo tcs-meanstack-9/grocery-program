@@ -3,7 +3,7 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 }
 
 mat-sidenav-content {
-  background: #f0f4fa;
+  background:linear-gradient( rgb(178, 153, 228),rgb(228, 228, 81));
 }
 
 mat-sidenav {
@@ -13,3 +13,4 @@ mat-sidenav {
 .m-r-15 {
   margin-right: 15px;
 }
+
