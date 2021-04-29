@@ -28,6 +28,7 @@ import { EmployeeUnlockUserComponent } from './employee-unlock-user/employee-unl
 import { EmployeeEditProfileComponent } from './employee-edit-profile/employee-edit-profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminService } from './admin.service';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 
 const routes: Routes = [
@@ -55,7 +56,8 @@ const routes: Routes = [
     UserDashboardComponent,
     EmployeeUpdateOrderStatusComponent,
     EmployeeUnlockUserComponent,
-    EmployeeEditProfileComponent
+    EmployeeEditProfileComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
