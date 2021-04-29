@@ -42,7 +42,7 @@ export class UserLoginComponent implements OnInit {
       this.showRemainingAttempts = true;
 
       await this.userService.login(userLoginForm);
-      this.router.navigate(['user-dashboard']);
+      this.router.navigate(['user-login']);
     } else {
       console.log("Please raise a support ticket to log back in.")
     }
