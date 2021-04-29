@@ -22,7 +22,7 @@ export class UserDashboardComponent implements OnInit {
     public cartService : CartService,
     public router: Router
   ) {}
-
+  userName:string = "";
 
   ngOnInit(): void {
     this.productService.getProducts()
@@ -30,6 +30,9 @@ export class UserDashboardComponent implements OnInit {
     for(var i=0;i<this.productList.length;i++)
     {
       this.productList[i].cartQuantity=0;
+    }
+    {
+      this.userName = JSON.parse(sessionStorage.getItem("user")).user.userId;
     }
   }
  

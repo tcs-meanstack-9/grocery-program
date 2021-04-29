@@ -7,11 +7,20 @@
 h1{
   font-weight: bold;
   text-align:center;
-  font-family: cursive;
+  font-style: italic;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 50px;
-  color:rgba(59, 101, 121, 0.918);
+  color:rgb(247, 241, 241);
   text-decoration:dashed;
   font-variant: small-caps;
-  text-shadow:-2px -1px 0 rgb(135, 199, 241),-1px -1px;
-  background-color:rgb(187, 241, 216) ;
+  
+  
 }
+body{
+  background-image: url(https://midwestcommunity.org/wp-content/uploads/2018/02/Groceries-ThinkstockPhotos-836782690.jpg);
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size:1250px 800px;
+  background-position:center;  
+}
+

@@ -2,12 +2,15 @@
 <div class="container">
     
     <div fxLayout="row" class="add-button1">
+      <button  mat-flat-button color="primary" class="cartButton" (click)="placeOrder()" >Place Order</button>
+      <button  mat-flat-button color="primary" class="cartButton" (click)="gotoProductList()" >Go To Product List</button>
+ 
       <button mat-raised-button color="primary" (click)="logout()">logout</button>
     </div>
 
  
     <div>
-        <h2>Welcome to the User dashboard component</h2>
+        
         Please select one of the following options:<br/>
         <input type="button" value="Log Out"/><br/>
         <input type="button" value="View Order Status"/><br/>
@@ -37,9 +40,7 @@
       </mat-card>
       
     </div>
-    <button  mat-flat-button color="primary" class="cartButton" (click)="placeOrder()" >Place Order</button>
-     <button  mat-flat-button color="primary" class="cartButton" (click)="gotoProductList()" >Go To Product List</button>
-</div>
+   </div>
   
   
   

@@ -1,4 +1,6 @@
-<h1>User Panel</h1>
+
+<body>
+  <h1>USER</h1>
 
 <div class="login-container">
   <form class="example-form" #userLoginForm = "ngForm" (ngSubmit)="login(userLoginForm.value)" method="POST">
@@ -23,6 +25,9 @@
     
     <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Login</button>
     <button mat-raised-button class="full-width m-t-15" style="background-color: green; color: white;" routerLink="/signup">Sign up</button>
-    
+    <button mat-raised-button class="full-width m-t-15" color="primary" onclick="location.href = ''">Home</button>
+
   </form>
 </div>
+<br/><br/><br/><br/><br/><br/><br/>
+</body>
