@@ -9,7 +9,6 @@
     <button mat-raised-button color="primary">View Request</button>
   </div>
  
-  
   <div class="product-container m-t-10">
     <mat-card class="product-card" *ngFor="let product of productList">
       <img mat-card-image class="image" [src]="product.image || defaultImg" [alt]="product.name">

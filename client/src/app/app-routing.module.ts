@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupConfirmationComponent } from './signup-confirmation/signup-confirmation.component';
 import { SignupComponent } from './signup/signup.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 const routes: Routes = [
     {path:"login", component:LoginComponent},
@@ -13,8 +15,10 @@ const routes: Routes = [
     {path:"dashboard", component:DashboardComponent},
     {path:"signup-confirmation", component:SignupConfirmationComponent},
     {path:"admin", component:AdminComponent},
+    {path:"login", component:LoginComponent},
+    {path:"user-login", component:UserLoginComponent},
+    {path:"user-dashboard", component:UserDashboardComponent},
     {path:"home", component:HomeComponent},
-
     {path:"", redirectTo:"home", pathMatch:"full"}
 ];
 
