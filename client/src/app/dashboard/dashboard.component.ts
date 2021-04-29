@@ -95,8 +95,8 @@ export class DashboardComponent implements OnInit {
       for(let i in order.products) {
         for(let j in this.reportedProducts) {
           if(order.products[i].name == this.reportedProducts[j].name) {
-            this.reportedProducts[j].quantity = parseInt(this.reportedProducts[j].quantity) + parseInt(order.products[i].cartQuantity);
-            this.reportedProducts[j].total = parseInt(this.reportedProducts[j].quantity) * parseInt(this.reportedProducts[j].price);
+            this.reportedProducts[j].quantity = parseFloat(this.reportedProducts[j].quantity) + parseFloat(order.products[i].cartQuantity);
+            this.reportedProducts[j].total = parseFloat(this.reportedProducts[j].quantity) * parseFloat(this.reportedProducts[j].price);
             dupe = true;
           }
         }
@@ -106,7 +106,7 @@ export class DashboardComponent implements OnInit {
             name:order.products[i].name,
             price:order.products[i].price,          
             quantity:order.products[i].cartQuantity,
-            total: parseInt(order.products[i].price) * parseInt(order.products[i].cartQuantity)
+            total: parseFloat(order.products[i].price) * parseFloat(order.products[i].cartQuantity)
           });
         }
         dupe = false;
