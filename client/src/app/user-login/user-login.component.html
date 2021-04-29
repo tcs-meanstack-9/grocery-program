@@ -16,6 +16,10 @@
     <label style="color: red;"  *ngIf="showRemainingAttempts"> 
       *Remaining login attempts: {{remainingAttempts}} 
     </label>
+
+    <label style="color: red;"  *ngIf="showLockedOut"> 
+      *You have been locked out. Please raise a ticket. 
+    </label>
     
     <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Login</button>
     <button mat-raised-button class="full-width m-t-15" style="background-color: green; color: white;" routerLink="/signup">Sign up</button>

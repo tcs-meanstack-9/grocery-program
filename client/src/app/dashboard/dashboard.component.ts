@@ -86,12 +86,15 @@ export class DashboardComponent implements OnInit {
     deleteEmployeeForm.resetForm();
   }
 
-  generateReports() {
+  generateReports(timeFrame:number) {
     let dupe:boolean = false;
     this.reportedProducts = [];
     this.grandTotal = 0;
-  
+
     this.orderList.forEach(order =>{
+      let diff = new Date(Date.now()).getTime() - new Date(order.orderDate).getTime();
+      let diffDays = Math.floor(diff / (1000*60*60*24));
+
       for(let i in order.products) {
         for(let j in this.reportedProducts) {
           if(order.products[i].name == this.reportedProducts[j].name) {
@@ -100,7 +103,8 @@ export class DashboardComponent implements OnInit {
             dupe = true;
           }
         }
-        if(!dupe) {
+        
+        if(!dupe && (diffDays < timeFrame)) {
           this.reportedProducts.push({
             date:order.orderDate,
             name:order.products[i].name,
@@ -112,9 +116,10 @@ export class DashboardComponent implements OnInit {
         dupe = false;
       }
     });
+
     for(let product of this.reportedProducts) {
       this.grandTotal += product.total;
     }
     this.showReport = !this.showReport;
   }
-  }
+}
