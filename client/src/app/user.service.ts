@@ -30,6 +30,7 @@ export class UserService {
     return new Promise((resolve, reject)=>{
       this.http.post(`${this.baseUrl}/signin`, userLoginForm).subscribe(result=>{
         this.userObj = result;
+        sessionStorage.setItem("user", JSON.stringify(this.userObj));
         localStorage.setItem("remainingAttempts", '3');
         resolve(result);
       }, (err) => {
