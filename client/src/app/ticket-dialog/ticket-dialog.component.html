@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Raise Ticket</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="example-form">
+    <mat-form-field class="full-width">
+      <mat-label>User Name</mat-label>
+      <input matInput name="userName" [(ngModel)]="data.userName" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput name="email" [(ngModel)]="data.email" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Reason</mat-label>
+      <input matInput name="reason" [(ngModel)]="data.reason" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Save</button>
+</mat-dialog-actions>
