@@ -11,5 +11,4 @@ const EmployeeSchema = new Schema({
     password:String
 });
 
-
 module.exports = mongoose.model("Employees", EmployeeSchema);

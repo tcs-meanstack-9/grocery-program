@@ -21,12 +21,17 @@ export class EmployeeSigninComponent implements OnInit {
     this.empSer.retrieveAllEmployees().subscribe(result=>this.employees=result);
   }
 
-  login() {
+  login(employeeLoginForm:any) {
     if (true) {
-      console.log("logged employee in ~~");
-      sessionStorage.setItem('employeeLoggedIn', 'true');
-      this.router.navigate(['employee-dashboard']);
-      
+      let email = employeeLoginForm.email;
+      let password = employeeLoginForm.password;
+      for(let i = 0; i < this.employees.length; i ++){
+        if (email == this.employees[i].email && password == this.employees[i].password){
+          console.log("logged employee in ~~");
+          sessionStorage.setItem("loggedInEmployeeId", this.employees[i]._id.toString());
+          this.router.navigate(['employee-dashboard']);
+        }
+      }
     }
   }
   checkCredentials(){
