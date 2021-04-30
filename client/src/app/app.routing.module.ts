@@ -9,12 +9,16 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { OrderComponent } from './order/order.component';
 import { TicketDialogComponent } from './ticket-dialog/ticket-dialog.component';
 import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
     {path:"login",component:LoginComponent},
     {path:"dashboard",component:DashboardComponent},
     {path:"employeeLogin",component:EmployeeSigninComponent},
+    {path:"employee-dashboard", component:EmployeeDashboardComponent},
+    {path:"employee-signin", component:EmployeeSigninComponent},
+    {path:"employee-send-request", component:EmployeeSendRequestComponent},
     {path:"userLogin",component:UserDashboardComponent},
     {path:"cart",component:CartComponent},
     {path:"order",component:OrderComponent},

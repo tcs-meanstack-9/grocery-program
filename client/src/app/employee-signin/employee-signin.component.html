@@ -4,7 +4,7 @@
   <form class="example-form" #employeeLoginForm = "ngForm" (ngSubmit)="login(employeeLoginForm.value)" method="POST">
 
     <mat-form-field class="full-width">
-      <mat-label>User name</mat-label>
+      <mat-label>Employee Email</mat-label>
       <input matInput name="email" ngModel required>
     </mat-form-field>
 
@@ -15,21 +15,7 @@
 
     
     <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Login</button>
-    <button mat-raised-button class="full-width m-t-15" style="background-color: green; color: white;" routerLink="/signup">Sign up</button>
-    
+    <button mat-raised-button class="full-width m-t-15" color="primary" routerLink="/employee-send-request">Send Request</button>
+    <button mat-raised-button class="full-width m-t-15" color="primary" routerLink="/home">Home</button>
   </form>
 </div>
-    <div>
-        <table border="1">
-                <tr>
-                    <th>eId</th>
-                    <th>EmployeeName</th>
-                    <th>Phone number</th>
-                </tr>
-                <tr *ngFor="let ee of employees">
-                        <td>{{ee._id}}</td>
-                        <td>{{ee.firstName}}</td>
-                        <td>{{ee.phoneNumber}}</td>
-                </tr>
-        </table>
-    </div>

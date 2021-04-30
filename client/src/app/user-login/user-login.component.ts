@@ -36,7 +36,7 @@ export class UserLoginComponent implements OnInit {
     let attemptsLeft = parseInt(localStorage.getItem("remainingAttempts"));
 
     // For testing: Use to reset the number of login attempts until raising a ticket is finished
-    //localStorage.setItem("remainingAttempts", '3');
+    localStorage.setItem("remainingAttempts", '3');
 
     //if(attempsLeft > 0 || raisedTicketApproved == true) {
     if(attemptsLeft > 0) {
