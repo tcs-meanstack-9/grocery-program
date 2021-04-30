@@ -1,10 +1,35 @@
-<div>
-    <h1>Employee Panel</h1>
-    <form action="login()">
-        <label>Email Address</label>
-        <input type="text" name="email" [(ngModel)]="data.email"/><br/>
-        <label>Password</label>
-        <input type="text" name="password" [(ngModel)]="data.password"/><br/>
-        <button type="submit">Sign In</button>
-    </form>
+<h1>Employee</h1>
+
+<div class="login-container">
+  <form class="example-form" #employeeLoginForm = "ngForm" (ngSubmit)="login(employeeLoginForm.value)" method="POST">
+
+    <mat-form-field class="full-width">
+      <mat-label>User name</mat-label>
+      <input matInput name="email" ngModel required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput name="password" type="password" ngModel required>
+    </mat-form-field>
+
+    
+    <button mat-raised-button class="full-width m-t-15" type="submit" color="primary">Login</button>
+    <button mat-raised-button class="full-width m-t-15" style="background-color: green; color: white;" routerLink="/signup">Sign up</button>
+    
+  </form>
 </div>
+    <div>
+        <table border="1">
+                <tr>
+                    <th>eId</th>
+                    <th>EmployeeName</th>
+                    <th>Phone number</th>
+                </tr>
+                <tr *ngFor="let ee of employees">
+                        <td>{{ee._id}}</td>
+                        <td>{{ee.firstName}}</td>
+                        <td>{{ee.phoneNumber}}</td>
+                </tr>
+        </table>
+    </div>

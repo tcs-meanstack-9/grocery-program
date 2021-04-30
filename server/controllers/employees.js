@@ -3,6 +3,7 @@ const asyncHandler = require("../middlewares/async");
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectId } = require('mongodb');
 const random = require('random');
+let EmployeeModel = require("../models/Employee.js");
 
 const dbName = "grocers";
 const uri =  'mongodb://localhost:27017/grocers';
@@ -94,4 +95,14 @@ exports.getAllEmployees = asyncHandler(async (req, res, next) => {
       await client.close();
     }
   });
+ 
+exports.getAllEmployees =(req,res)=> {
+
+  EmployeeModel.find({},(err,result)=> {
+      if(!err){
+          res.json(result);
+      }
+  })
+
+}
     
