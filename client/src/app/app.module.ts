@@ -40,6 +40,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path:'employeeLogin',component:EmployeeSigninComponent},
+  {path:'employeeRequests',component:EmployeeSendRequestComponent},
   { path:"userLogin",component:UserDashboardComponent},	
   { path:"cart",component:CartComponent},	
   { path:"order",component:OrderComponent},

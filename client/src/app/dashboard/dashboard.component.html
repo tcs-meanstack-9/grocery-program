@@ -8,7 +8,7 @@
 
     <ul class="nav nav-pills">
       <li><button mat-raised-button class="adm_btn" (click)="openProductDialog()">Add new item</button></li>
-      <li><button mat-raised-button class="adm_btn">View Request</button></li>
+      <li><button mat-raised-button class="adm_btn" (click)="this.showEmployeeRequests = !this.showEmployeeRequests">View Request</button></li>
       <li><button mat-raised-button class="adm_btn" (click)="this.showAddEmployee = !this.showAddEmployee">Add Employee</button></li>
       <li><button mat-raised-button class="adm_btn" (click)="this.showDeleteEmployee = !this.showDeleteEmployee">Delete Employee</button></li>
       <li><button mat-raised-button class="adm_btn" (click)="generateReports(7)">Show Weekly Report</button></li>
@@ -39,6 +39,30 @@
         <button mat-button (click)="deleteProduct(product)">Delete</button>
       </mat-card-actions>
     </mat-card>
+  </div>
+
+ <!-- Admin View Employee Requests ----------------------------->
+
+  <div class="request-container m-t-10" *ngIf="showEmployeeRequests">
+    <h1>Employee Requests :</h1>
+    <mat-card class="request-card" *ngFor="let employeeRequest of empolyeeRequests">
+      
+      <mat-card-content>
+          <div class="m-t-10 title">
+         Name:  {{ employeeRequest.empName }}
+            </div>
+        <div class="m-t-10 title">
+        Message :  {{ employeeRequest.message }}
+        </div>
+        
+        <div class="m-t-10 title">
+       Request Date : {{ employeeRequest.requestDate }}
+        </div>
+        
+      </mat-card-content>
+    
+    </mat-card>
+    
   </div>
 
   <!-- Admin Add Employee Form ----------------------------->

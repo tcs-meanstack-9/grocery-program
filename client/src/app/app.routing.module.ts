@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { OrderComponent } from './order/order.component';
 import { TicketDialogComponent } from './ticket-dialog/ticket-dialog.component';
+import { EmployeeSendRequestComponent } from './employee-send-request/employee-send-request.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -18,6 +19,9 @@ const routes: Routes = [
     {path:"cart",component:CartComponent},
     {path:"order",component:OrderComponent},
     {path:"ticket",component:TicketDialogComponent},
+    {path:"employeeRequests",component:EmployeeSendRequestComponent},
+ 
+
 ];
 
 @NgModule({

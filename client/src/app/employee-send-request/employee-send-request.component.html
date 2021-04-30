@@ -1,4 +1,24 @@
-<div>
-    <h2>Send Request</h2>
+<body>
+    <h1>Employee Send Request</h1>
     
-</div>
+    <div class="login-container">
+      <form class="example-form">
+        <mat-form-field class="full-width">
+          <mat-label>Employee name</mat-label>
+          <input matInput name="empName" [(ngModel)]="data.empName" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Message</mat-label>
+          <input matInput name="message" [(ngModel)]="data.message" required>
+        </mat-form-field>
+        <label style="color: #3f51b5;"  *ngIf="showSuccessMessage"> 
+            Employee Request Sent Successfully !
+           </label>
+        <button mat-raised-button class="full-width m-t-15" color="primary" (click)="sendRequest()">Send Request</button>
+        <button mat-raised-button class="full-width m-t-15" color="primary" onclick="location.href = ''">Home</button>
+        
+      </form>
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    </body>
+    
