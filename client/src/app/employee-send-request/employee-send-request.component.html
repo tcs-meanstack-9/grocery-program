@@ -1,12 +1,11 @@
 <div>
     <h2>Send Request</h2>
-    <form #productRef="ngForm"  (ngSubmit)="updateProductQuantity(productRef,value)">
+    <form #productRef="ngForm"  (ngSubmit)="updateProduct(productRef.value)">
         <label>Product ID</label>
         <input type="text" name="productID" ngModle><br>
         <label>New Quantity</label>
         <input type="text" name="newQuantity" ngModel><br>
         <input type="submit" value="Update Quantity">
         <input type="reset" value="reset">
-    </form>
-    
+    </form>   
 </div>

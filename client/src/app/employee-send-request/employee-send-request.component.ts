@@ -14,8 +14,8 @@ export class EmployeeSendRequestComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateProductQuantity(productRef:any){
+  updateProduct(productRef:any){
     console.log(productRef);
-    this.productSer.updateProductQuantity(productRef);
+    this.productSer.updateProduct(productRef);
   }
 }
