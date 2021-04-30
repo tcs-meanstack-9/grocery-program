@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 export class EmployeeDashboardComponent implements OnInit {
 
   constructor(public router:Router) { }
-
+  empName?:string;
   ngOnInit(): void {
+    this.empName = sessionStorage.getItem("empName");
     if(!sessionStorage.getItem('isAdminLoggedIn')) {
       this.router.navigate(['']);
     }

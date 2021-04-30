@@ -29,6 +29,7 @@ export class EmployeeSigninComponent implements OnInit {
         if (email == this.employees[i].email && password == this.employees[i].password){
           console.log("logged employee in ~~");
           sessionStorage.setItem("loggedInEmployeeId", this.employees[i]._id.toString());
+          sessionStorage.setItem("empName", this.employees[i].firstName);
           this.router.navigate(['employee-dashboard']);
         }
       }

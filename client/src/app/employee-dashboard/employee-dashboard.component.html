@@ -1,8 +1,14 @@
 <div>
-    <h2>Welcome to employee dashboard component</h2>
-    Please select an option:<br/>
-    <input type="button" value="Send Request"/><br/>
-    <input type="button" value="Update Order Status"/><br/>
-    <input type="button" value="Unlock"/><br/>
-    <input type="button" value="Edit Profile"/><br/>
+    <h2>Welcome, {{empName}} to Employee Dashboard</h2>
+    <div class="text-right" style="margin: 20px">
+        <button type="button" class="btn btn-success" routerLink="/employee-signin">Log out</button>
+    </div>
+    <hr/>
+    <div class="container" style="margin-left: 10px;">    
+        <ul class="nav nav-pills">
+          <li><button mat-raised-button class="adm_btn" >Update Order Status</button></li>
+          <li><button mat-raised-button class="adm_btn" >Unlock User Accounts</button></li>
+          <li><button mat-raised-button class="adm_btn" >Edit Employee Profile</button></li>
+        </ul>
+      </div>
 </div>
