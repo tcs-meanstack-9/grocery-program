@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TicketDialogComponent } from '../ticket-dialog/ticket-dialog.component';
 import { UserService } from '../user.service';
+import { MatDialog } from '@angular/material/dialog';
+import {TicketService} from '../ticket.service';
 
 @Component({
   selector: 'app-user-login',
@@ -11,9 +14,10 @@ export class UserLoginComponent implements OnInit {
   remainingAttempts:number = 3;
   showRemainingAttempts:boolean = false;
   showLockedOut:boolean = false;
-  
-  constructor(public router: Router, public userService:UserService) { 
+  date = new Date();
+  constructor(public router: Router, public userService:UserService, public ticketService :TicketService, public dialog: MatDialog) { 
   }
+  
 
   ngOnInit(): void {
     let attemptsLeft = localStorage.getItem("remainingAttempts");
@@ -52,5 +56,26 @@ export class UserLoginComponent implements OnInit {
     } else {
       this.showRemainingAttempts = false;
     }
+  }
+
+
+  openTicketDialog(ticket?: any) {
+    const dialogRef = this.dialog.open(TicketDialogComponent, {
+      width: '400px',
+      data: ticket || {}
+    });
+    dialogRef.afterClosed().subscribe(value => {
+      if(value.userName && value.email && value.reason )
+      {
+        value.ticketDate=this.date.toDateString();
+        this.ticketService.createticket(value)
+        .subscribe((data: any) => {this.gotoUserLogin()});
+      }
+    });
+  }
+
+  gotoUserLogin()
+  {
+  //  this.router.navigate(['userLogin']);
   }
 }

@@ -33,15 +33,18 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';	
 import { OrderService } from "./order.Service";	
 import { OrderComponent } from './order/order.component';
+import { TicketDialogComponent } from "./ticket-dialog/ticket-dialog.component";
 
 const routes: Routes = [
   { path:'',component:HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path:'employeeLogin',component:EmployeeSigninComponent},
+  {path:'employeeRequests',component:EmployeeSendRequestComponent},
   { path:"userLogin",component:UserDashboardComponent},	
   { path:"cart",component:CartComponent},	
-  { path:"order",component:OrderComponent}
+  { path:"order",component:OrderComponent},
+  { path:"ticket",component:TicketDialogComponent}
 ];
 
 @NgModule({
@@ -64,7 +67,8 @@ const routes: Routes = [
     EmployeeEditProfileComponent,
     UserLoginComponent,
     CartComponent,	
-    OrderComponent
+    OrderComponent,
+    TicketDialogComponent,
   ],
   imports: [
     BrowserModule,

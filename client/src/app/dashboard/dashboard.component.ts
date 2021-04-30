@@ -6,6 +6,7 @@ import { ProductService } from '../product.service';
 import { AdminService } from '../admin.service';
 import { NgForm } from '@angular/forms';
 import { OrderService } from '../order.Service';
+import { RequestService} from '../request.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,18 +18,21 @@ export class DashboardComponent implements OnInit {
   productList = [];
   defaultImg = 'assets/image/groceries.png';
   orderList = [];
+  empolyeeRequests=[];
   reportedProducts = [];
   grandTotal = 0;
   showReport:boolean = false;
   nonMatchingPassword:boolean = false;
   showAddEmployee:boolean = false;
   showDeleteEmployee:boolean = false;
+  showEmployeeRequests=false;
 
   constructor(
     public dialog: MatDialog,
     public productService: ProductService,
     public adminService:AdminService,
     public orderService:OrderService,
+    public requestService : RequestService,
     public router: Router
   ) {}
 
@@ -38,6 +42,7 @@ export class DashboardComponent implements OnInit {
     //   this.router.navigate(['']);
     // }
     this.orderService.getOrders().subscribe((data: any) => this.orderList = data);
+    this.requestService.getallrequests().subscribe((data:any)=>this.empolyeeRequests=data);
   }
 
   getProducts() {
@@ -85,6 +90,8 @@ export class DashboardComponent implements OnInit {
     this.adminService.deleteEmployee(deleteEmployeeForm.value);
     deleteEmployeeForm.resetForm();
   }
+
+
 
   generateReports(timeFrame:number) {
     let dupe:boolean = false;
